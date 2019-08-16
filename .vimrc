@@ -44,3 +44,11 @@ Plugin 'honza/vim-snippets'                                             " Snippe
 ""-----Python
 Plugin 'klen/python-mode'                                               " Phyton mode ( docs, refactor, lints, highlighting, run and ipdb and more)
 Plugin 'davidhalter/jedi-vim'                                           " Jedi-vim autocomplete plugin
+Plugin 'mitsuhiko/vim-jinja'						" Jinja support for vim
+Plugin 'mitsuhiko/vim-python-combined'					" Combined Python 2/3 for vim
+
+
+call vundle#end								" Required
+filetype on
+filetype plugin on
+filetype plugin indent on
