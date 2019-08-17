@@ -7,13 +7,12 @@ set ls=2                                                                " все
 set nu                                                                  " показывать номера строк
 set scrolloff=10                                                        " 10 строк при скроле за раз
 set noswapfile                                                          " no swap files
-autocmd vimenter * NERDTree                                             " автоматическое отображение NERDTREE при запуске vim
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 let g:snippets_dir = "~/.vim/vim-snippets/snippets"			" Указываем каталог с настройками SnipMate
 
 "----------Настройки Vim-Airline
 set laststatus=2
-let g:airline_theme='badwolf'
+"let g:airline_theme='badwolf'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -79,7 +78,7 @@ Plugin 'mitsuhiko/vim-jinja'						" Jinja support for vim
 Plugin 'mitsuhiko/vim-python-combined'					" Combined Python 2/3 for vim
 
 
-call vundle#end								" Required
+call vundle#end()								" Required
 filetype on
 filetype plugin on
 filetype plugin indent on
