@@ -10,7 +10,6 @@ set ls=2                                                                " все
 set nu                                                                  " показывать номера строк
 set scrolloff=10                                                        " 10 строк при скроле за раз
 set noswapfile                                                          " no swap files
-autocmd vimenter * NERDTree
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 let g:snippets_dir = "~/.vim/vim-snippets/snippets"			" Указываем каталог с настройками SnipMate
 
@@ -23,12 +22,14 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 "------------------------------------
 
 "----------Настройка TagBar
-"map <F4> :TagbarToogle<CR>
+map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 0 						" Автофокус на Tagbar при открытии
 "------------------------------------
 
 "----------Настройка NERDTree
-map <F3> :NERDTreeToogle<CR>
+map <F3> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']	" Игнорируемые файлы с расшриением
 "------------------------------------
 
@@ -76,7 +77,7 @@ Plugin 'honza/vim-snippets'                                             " Snippe
 "--------------------------------------
 
 "------Languages support--------
-Plugin 'scrooloose/syntax'						" Syntax cheking plugin for vim
+Plugin 'scrooloose/syntastic'						" Syntax cheking plugin for vim
 Plugin 'tpope/vim-commentary'						" Comment stuff out
 Plugin 'mitsuhiko/vim-sparkup'						" Sparkup (XML/jinja/html-django/etc.) support
 
