@@ -151,3 +151,38 @@ let g:pymode_run = 0
 "-------------------------------------
 "########################
 
+"#######################
+""HotKeys
+"######################
+"-------ConqueTerm
+"запуск интерпретатора на F5
+nnoremap <F5> :ConqueTermSplit ipython<CR>
+"а debug-mode на <F6>
+nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR>
+let g:ConqueTerm_StartMessages = 0
+let g:ConqueTerm_CloseOnEnd = 0
+"проверка кода в соответствии с PEP8 через <leader>8
+autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR>
+
+"автокомплит через <Ctrl+Space>
+inoremap <C-space> <C-x><C-o>
+"переключение между синтаксисами
+"nnoremap <leader>Th :set ft=htmljinja<CR>
+"nnoremap <leader>Tp :set ft=python<CR>
+"nnoremap <leader>Tj :set ft=javascript<CR>
+"nnoremap <leader>Tc :set ft=css<CR>
+"nnoremap <leader>Td :set ft=django<CR>
+"#######################
+
+
+
+
+"######################
+"Languages support
+"#####################
+"-------Python
+"autocmd FileType python set completeopt-=preview                       "раскомментируйте, в случае, если не надо, чтобы jedi-vim показывал документацию по методу/классу
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
+			\ formatoptions+=croq softtabstop=4 smartindent
+			\ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd FileType pyrex setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
