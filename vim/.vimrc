@@ -1,25 +1,29 @@
 "########################
 " General settings
 "########################
-
+aunmenu Help
+aunmenu Window
+let no_buffers_menu=1
+set mousemodel=popup
 set enc=utf-8                                                           " utf-8 по дефолту в файлах
 set ls=2                                                                " всегда показывать статусбар
 set nu                                                                  " показывать номера строк
 set scrolloff=10                                                        " 10 строк при скроле за раз
 set noswapfile                                                          " no swap files
+autocmd vimenter * NERDTree
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 let g:snippets_dir = "~/.vim/vim-snippets/snippets"			" Указываем каталог с настройками SnipMate
 
 "----------Настройки Vim-Airline
 set laststatus=2
-"let g:airline_theme='badwolf'
+let g:airline_theme='badwolf'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 "------------------------------------
 
 "----------Настройка TagBar
-map <F4> :TagbarToogle<CR>
+"map <F4> :TagbarToogle<CR>
 let g:tagbar_autofocus = 0 						" Автофокус на Tagbar при открытии
 "------------------------------------
 
@@ -58,6 +62,7 @@ Plugin 'majutsushi/tagbar'                                              " Class/
 
 "-------Other-------
 Plugin 'bling/vim-airline'                                              " Status/tabline for vim
+Plugin 'vim-airline/vim-airline-theme'					" Themes for vim-airline
 Plugin 'fisadev/FixedTaskList.vim'                                      " Pending tasks list
 Plugin 'rosenfeld/conque-term'                                          " Console as buffer [???]
 Plugin 'tpope/vim-surround'            					" Parentheses, brackets, quotes, XML tags, and more
@@ -71,14 +76,19 @@ Plugin 'honza/vim-snippets'                                             " Snippe
 "--------------------------------------
 
 "------Languages support--------
+Plugin 'scrooloose/syntax'						" Syntax cheking plugin for vim
+Plugin 'tpope/vim-commentary'						" Comment stuff out
+Plugin 'mitsuhiko/vim-sparkup'						" Sparkup (XML/jinja/html-django/etc.) support
+
 ""-----Python
 Plugin 'klen/python-mode'                                               " Phyton mode ( docs, refactor, lints, highlighting, run and ipdb and more)
 Plugin 'davidhalter/jedi-vim'                                           " Jedi-vim autocomplete plugin
 Plugin 'mitsuhiko/vim-jinja'						" Jinja support for vim
 Plugin 'mitsuhiko/vim-python-combined'					" Combined Python 2/3 for vim
+Plugin 'hynek/vim-python-pep8-indent'                                   " PEP8 indent
+Plugin 'jmcantrell/vim-virtualenv'                                      " Virtualenv support in VIM
 
-
-call vundle#end()								" Required
+call vundle#end()							" Required
 filetype on
 filetype plugin on
 filetype plugin indent on
